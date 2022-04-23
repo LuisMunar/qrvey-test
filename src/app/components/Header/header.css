@@ -1,0 +1,13 @@
+.header {
+  background-image: url('../../assets/images/space-world.png');
+  background-repeat: no-repeat;
+  background-position: 100% center;
+  background-size: 55% 100%;
+  padding: 110px 40px;
+}
+
+.header__title {
+  width: 400px;
+  font-size: 50px;
+  font-family: Roboto-Bold;
+}
