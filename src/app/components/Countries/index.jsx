@@ -1,9 +1,9 @@
 import CountriesList from './CountriesList'
-// import CountryDetails from './CountriesList/CountryDetails'
+import CountryDetails from './CountriesList/CountryDetails'
 import './countries.css'
 
 const Countries = () => {
-  return (
+  const renderCountries = () => (
     <div className="countries">
       <CountriesList />
       <CountriesList />
@@ -11,9 +11,13 @@ const Countries = () => {
       <CountriesList />
       <CountriesList />
 
-      {/* <CountryDetails /> */}
+      <CountryDetails />
     </div>
   )
+
+  const renderWithoutCountries = () => <span className="countries__not-found">No results found</span>
+
+  return true ? renderCountries() : renderWithoutCountries()
 }
 
 export default Countries

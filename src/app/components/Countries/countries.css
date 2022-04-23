@@ -4,3 +4,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.countries__not-found {
+  display: block;
+  text-align: center;
+  padding: 100px;
+  font-family: Roboto-Medium;
+  font-size: 30px;
+  color: var(--grey-color);
+}
