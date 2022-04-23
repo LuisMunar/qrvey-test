@@ -1,5 +1,5 @@
 import CountriesList from './CountriesList'
-import CountryDetails from './CountriesList/CountryDetails'
+import CountryDetails from './CountryDetails'
 import './countries.css'
 
 const Countries = () => {

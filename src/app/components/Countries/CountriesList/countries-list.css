@@ -1,34 +1,10 @@
-.countries-list {
-
-}
-
 .countries-list__title {
   font-family: Roboto-bold;
   color: var(--primary-color);
   font-size: 20px;
+  margin: 0 0 12px 0;
 }
 
 .countries-list__list {
   list-style-type: none;
-}
-
-.countries-list__list-item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  margin: 0 0 4px 0;
-  cursor: pointer;
-}
-
-.countries-list__list-item-flag {
-  height: 12px;
-  width: 18px;
-  margin: 0 8px 0 0;
-}
-
-.countries-list__list-item-star {
-  height: 15px;
-  width: 15px;
-  margin: 0 0 0 10px;
 }

@@ -1,9 +1,9 @@
-import Close from '../../../../assets/images/global-icons/close.svg'
-import UnselectedStar from '../../../../assets/images/countries/unselected-star.svg'
-import SampleFlag from '../../../../assets/images/countries/sample-flag.svg'
+import Close from '../../../assets/images/global-icons/close.svg'
+import UnselectedStar from '../../../assets/images/countries/unselected-star.svg'
+import SampleFlag from '../../../assets/images/countries/sample-flag.svg'
 import './country-details.css'
 
-const CountryDetails = () => {
+const CountryDetailsStateless = () => {
   return (
     <div className="country-details">
       <div className="country-details__content">
@@ -48,4 +48,4 @@ const CountryDetails = () => {
   )
 }
 
-export default CountryDetails
+export default CountryDetailsStateless
