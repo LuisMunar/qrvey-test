@@ -1,20 +1,23 @@
+import PropTypes from 'prop-types'
+
 import CountryItem from './CountryItem'
 import './countries-list.css'
 
-const CountriesList = () => {
+const CountriesList = ({ continent, countries }) => {
   return (
     <div>
-      <h3 className="countries-list__title">Africa</h3>
+      <h3 className="countries-list__title">{ continent }</h3>
 
       <ul className="countries-list__list">
-        <CountryItem />
-        <CountryItem />
-        <CountryItem />
-        <CountryItem />
-        <CountryItem />
+        { countries.map((country, i) => <CountryItem key={ i } country={ country } />) }
       </ul>
     </div>
   )
+}
+
+CountriesList.propTypes = {
+  continent: PropTypes.string.isRequired,
+  countries: PropTypes.array.isRequired
 }
 
 export default CountriesList

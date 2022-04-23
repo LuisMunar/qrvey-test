@@ -1,35 +1,22 @@
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import CountriesList from './CountriesList'
-import CountryDetails from './CountryDetails'
-import { getCountriesService } from '../../services/getCountriesService'
-import './countries.css'
+import { getCountriesMiddleware } from '../../redux/middlewares/countriesMiddleware'
+import CountriesStateless from './CountriesStateless'
 
 const Countries = () => {
+  const { dataCountries } = useSelector(({ countriesReducer }) => countriesReducer)
+  const dispatch = useDispatch()
+
   useEffect(() => {
     getCountries()
-  }, [])
+  }, []) // eslint-disable-line
 
-  const getCountries = async () => {
-    const result = await getCountriesService()
-    console.log(result)
+  const getCountries = () => {
+    dispatch(getCountriesMiddleware())
   }
 
-  const renderCountries = () => (
-    <div className="countries">
-      <CountriesList />
-      <CountriesList />
-      <CountriesList />
-      <CountriesList />
-      <CountriesList />
-
-      <CountryDetails />
-    </div>
-  )
-
-  const renderWithoutCountries = () => <span className="countries__not-found">No results found</span>
-
-  return true ? renderCountries() : renderWithoutCountries()
+  return <CountriesStateless dataCountries={ dataCountries } />
 }
 
 export default Countries

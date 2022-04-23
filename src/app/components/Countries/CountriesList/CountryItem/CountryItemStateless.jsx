@@ -1,23 +1,24 @@
 import PropTypes from 'prop-types'
 
-import SampleFlag from '../../../../assets/images/countries/sample-flag.svg'
 import SelectedStart from '../../../../assets/images/countries/selected-star.svg'
 import './country-item.css'
 
-const CountryItemStateless = ({ handlerShowCountryDetails }) => {
+const CountryItemStateless = ({ country, handlerShowCountryDetails }) => {
+  const { flag, name  } = country
   return (
     <li
       className="country-item"
       onClick={ () => handlerShowCountryDetails() }
     >
-      <img src={ SampleFlag } alt="flag" className="country-item__flag" />
-      <span>Congo</span>
+      <span className="country-item__flag">{ flag }</span>
+      <span className="country-item__name">{ name.common }</span>
       <img src={ SelectedStart } alt="star" className="country-item__star" />
     </li>
   )
 }
 
 CountryItemStateless.propTypes = {
+  country: PropTypes.object.isRequired,
   handlerShowCountryDetails: PropTypes.func.isRequired
 }
 

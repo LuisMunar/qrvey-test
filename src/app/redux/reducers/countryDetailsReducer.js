@@ -1,4 +1,4 @@
-import { SHOW_COUNTRY_DETAILS } from '../types/countryDetailsTypes';
+import { SHOW_COUNTRY_DETAILS } from '../types/countryDetailsTypes'
 
 const initialState = {
   show: false
