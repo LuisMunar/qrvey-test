@@ -1,8 +1,20 @@
+import { useEffect } from 'react'
+
 import CountriesList from './CountriesList'
 import CountryDetails from './CountryDetails'
+import { getCountriesService } from '../../services/getCountriesService'
 import './countries.css'
 
 const Countries = () => {
+  useEffect(() => {
+    getCountries()
+  }, [])
+
+  const getCountries = async () => {
+    const result = await getCountriesService()
+    console.log(result)
+  }
+
   const renderCountries = () => (
     <div className="countries">
       <CountriesList />
