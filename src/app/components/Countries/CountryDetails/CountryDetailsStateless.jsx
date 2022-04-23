@@ -1,13 +1,21 @@
+
+import PropTypes from 'prop-types'
+
 import Close from '../../../assets/images/global-icons/close.svg'
 import UnselectedStar from '../../../assets/images/countries/unselected-star.svg'
 import SampleFlag from '../../../assets/images/countries/sample-flag.svg'
 import './country-details.css'
 
-const CountryDetailsStateless = () => {
+const CountryDetailsStateless = ({ hideCountryDetails }) => {
   return (
     <div className="country-details">
       <div className="country-details__content">
-        <img src={ Close } alt="close" className="country-details__content-close" />
+        <img
+          src={ Close }
+          alt="close"
+          className="country-details__content-close"
+          onClick={ hideCountryDetails }
+        />
 
         <div className="country-details__content-titlecontent">
           <h2 className="country-details__content-titlecontent-title">Colombia</h2>
@@ -46,6 +54,10 @@ const CountryDetailsStateless = () => {
       </div>
     </div>
   )
+}
+
+CountryDetailsStateless.propTypes = {
+  hideCountryDetails: PropTypes.func.isRequired
 }
 
 export default CountryDetailsStateless

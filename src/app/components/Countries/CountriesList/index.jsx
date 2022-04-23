@@ -1,4 +1,4 @@
-import CountryItem from './CountryItem/CountryItem'
+import CountryItem from './CountryItem'
 import './countries-list.css'
 
 const CountriesList = () => {
