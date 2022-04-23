@@ -1,0 +1,11 @@
+.default-layout {
+  width: 1280px;
+  margin: auto;
+  padding: 50px;
+}
+
+@media(max-width: 1280px) {
+  .default-layout {
+    width: 100%;
+  }
+}
