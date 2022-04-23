@@ -44,11 +44,9 @@ const Searcher = () => {
         list="myOptionsList"
         value={ filterValue }
         placeholder={ copyFilterValue }
-
         onFocus={ ($e) => handlersFocus($e) }
         onBlur={ ($e) => handlerBlur($e) }
         onChange={ ($e) => handlersChange($e) }
-
         className="searcher__inputlist"
       />
       <datalist id="myOptionsList">
