@@ -42,7 +42,10 @@ export const formatDataCountries = (countries) => {
     }
   })
 
-  return countriesByContinents.sort((itemA, itemB) => itemA.continent > itemB.continent ? 1 : -1)
+  return {
+    continents: continentsArray,
+    countriesByContinents: countriesByContinents.sort((itemA, itemB) => itemA.continent > itemB.continent ? 1 : -1)
+  }
 }
 
 export const numberFormat = (number) => {
