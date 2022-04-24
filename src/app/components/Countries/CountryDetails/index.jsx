@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import CountryDetailsStateless from './CountryDetailsStateless'
-import { setFavoriteCountrySelectedAction, showCountryDetailsAction } from '../../../redux/actions/countryDetailsActions'
+import { showCountryDetailsAction } from '../../../redux/actions/countryDetailsActions'
 import { setFavoriteCountryAction } from '../../../redux/actions/countriesActions'
 
 const CountryDetails = () => {
@@ -12,7 +12,6 @@ const CountryDetails = () => {
 
   const setFavoriteCountry = (params) => {
     dispatch(setFavoriteCountryAction(params))
-    dispatch(setFavoriteCountrySelectedAction(params.favorite))
   }
 
   return (
