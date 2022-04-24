@@ -1,5 +1,5 @@
 import { getCountriesService } from '../../services/getCountriesService'
-import { searchCountriesActions, setCountriesActions } from '../actions/countriesActions'
+import { loadingCountriesAction, searchCountriesActions, setCountriesActions } from '../actions/countriesActions'
 import { formatDataCountries } from '../../utils'
 import { getDataLDB } from '../../services/frontDBService'
 import { FAVORITE_COUNTRIES } from '../../constants/collectionsDBContants'
@@ -15,13 +15,17 @@ const getDataCountries = () => {
 
 export const getCountriesMiddleware = () => {
   return async (dispatch) => {
+    dispatch(loadingCountriesAction(true))
     dispatch(setCountriesActions(await getDataCountries()))
+    dispatch(loadingCountriesAction(false))
   }
 }
 
 export const getCountriesToSearchMiddleware = (payload) => {
   return async (dispatch) => {
+    dispatch(loadingCountriesAction(true))
     dispatch(setCountriesActions(await getDataCountries()))
     dispatch(searchCountriesActions(payload))
+    dispatch(loadingCountriesAction(false))
   }
 }

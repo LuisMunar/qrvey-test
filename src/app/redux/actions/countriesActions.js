@@ -1,4 +1,4 @@
-import { SET_COUNTRIES, SET_COUNTRIES_BY_CONTINENTS, SET_COUNTRIES_BY_FAVORITE, SET_COUNTRIES_BY_NAME, SET_FAVORITE_COUNTRY } from '../types/countriesTypes'
+import { LOADING_COUNTRIES, SET_COUNTRIES, SET_COUNTRIES_BY_CONTINENTS, SET_COUNTRIES_BY_FAVORITE, SET_COUNTRIES_BY_NAME, SET_FAVORITE_COUNTRY } from '../types/countriesTypes'
 import { setFavoriteCountrySelectedAction } from './countryDetailsActions'
 import { setDataLDB } from '../../services/frontDBService'
 import { FAVORITE_COUNTRIES } from '../../constants/collectionsDBContants'
@@ -55,5 +55,10 @@ const searchCountriesByFavorites = (payload) => ({
 
 const searchCountriesByContinents = (payload) => ({
   type: SET_COUNTRIES_BY_CONTINENTS,
+  payload
+})
+
+export const loadingCountriesAction = (payload) => ({
+  type: LOADING_COUNTRIES,
   payload
 })

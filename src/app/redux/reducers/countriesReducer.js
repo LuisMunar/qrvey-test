@@ -1,8 +1,9 @@
-import { SET_COUNTRIES, SET_COUNTRIES_BY_CONTINENTS, SET_COUNTRIES_BY_FAVORITE, SET_COUNTRIES_BY_NAME, SET_FAVORITE_COUNTRY } from '../types/countriesTypes'
+import { LOADING_COUNTRIES, SET_COUNTRIES, SET_COUNTRIES_BY_CONTINENTS, SET_COUNTRIES_BY_FAVORITE, SET_COUNTRIES_BY_NAME, SET_FAVORITE_COUNTRY } from '../types/countriesTypes'
 
 const initialState = {
   continents: [],
-  countriesByContinents: []
+  countriesByContinents: [],
+  loading: false
 }
 
 const countriesReducer = (state = initialState, { type, payload }) => {
@@ -63,6 +64,12 @@ const countriesReducer = (state = initialState, { type, payload }) => {
             countries: continentData.countries.filter(country => country.name.common.toLowerCase().includes(payload.searchValue.toLowerCase()))
           }
         }).filter(continentData => continentData.continent === payload.filterValue)
+      }
+    
+    case LOADING_COUNTRIES:
+      return {
+        ...state,
+        loading: payload
       }
   
     default:

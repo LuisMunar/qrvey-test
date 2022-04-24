@@ -39,7 +39,7 @@ const SearchStateless = ({ continents, handlerSearcher }) => {
         placeholder="Search country"
         className="searcher__input"
         onChange={ ($e) => setSearcheValue($e.target.value) }
-        onKeyUp={ () => requestHandlerSearch() }
+        onKeyUp={ ($e) => $e.key === 'Enter' && requestHandlerSearch() }
       />
 
       <input

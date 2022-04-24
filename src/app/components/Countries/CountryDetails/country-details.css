@@ -27,6 +27,11 @@
   right: 40px;
   padding: 10px;
   cursor: pointer;
+  border-radius: 50%;
+}
+
+.country-details__content-close:hover {
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .country-details__content-titlecontent {
