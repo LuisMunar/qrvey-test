@@ -23,11 +23,13 @@ export const getCountriesBorderFullname = (countries, borderCountries) => {
   return borderCountriesFullName.join(', ')
 }
 
-export const formatDataCountries = (countries) => {
+export const formatDataCountries = (countries, favoriteCountries) => {
+  console.log('favoriteCountries => ', favoriteCountries)
+
   const localCountries = countries.map(country => {
     return {
       ...country,
-      favorite: false,
+      favorite: favoriteCountries.find(favoriteCountry => country.name.common === favoriteCountry.name) ? true : false,
       borderCountriesFullName: getCountriesBorderFullname(countries, country.borders)
     }
   })
