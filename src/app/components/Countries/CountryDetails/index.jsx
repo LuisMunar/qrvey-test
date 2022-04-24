@@ -15,11 +15,11 @@ const CountryDetails = () => {
   }
 
   return (
-    show &&
     <CountryDetailsStateless
       hideCountryDetails={ hideCountryDetails }
       dataCountrySelected={ dataCountrySelected }
       setFavoriteCountry={ setFavoriteCountry }
+      show={ show }
     />
   )
 }

@@ -1,5 +1,5 @@
-
 import PropTypes from 'prop-types'
+import { CSSTransition } from 'react-transition-group'
 
 import Close from '../../../assets/images/global-icons/close.svg'
 import SelectedStar from '../../../assets/images/countries/selected-star.svg'
@@ -7,11 +7,11 @@ import UnselectedStar from '../../../assets/images/countries/unselected-star.svg
 import { getCountryCapital, getCountryCurrency, getCountryLanguage, numberFormat } from '../../../utils'
 import './country-details.css'
 
-const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setFavoriteCountry }) => {
-  const { name, region, population, capital, currencies, languages, flags, borderCountriesFullName, favorite } = dataCountrySelected
+const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setFavoriteCountry, show }) => {
+  const renderCountryDetails = () => {
+    const { name, region, population, capital, currencies, languages, flags, borderCountriesFullName, favorite } = dataCountrySelected
 
-  return (
-    <div className="country-details">
+    return (
       <div className="country-details__content">
         <img
           src={ Close }
@@ -64,13 +64,26 @@ const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setF
           />
         </div>
       </div>
-    </div>
+    )
+  }
+
+  return (
+    <CSSTransition
+      in={show}
+      timeout={300}
+      classNames="alert-transition"
+      unmountOnExit
+    >
+      <div className="country-details">
+        { dataCountrySelected && renderCountryDetails() }
+      </div>
+    </CSSTransition>
   )
 }
 
 CountryDetailsStateless.propTypes = {
   hideCountryDetails: PropTypes.func.isRequired,
-  dataCountrySelected: PropTypes.object.isRequired,
+  dataCountrySelected: PropTypes.object,
   setFavoriteCountry: PropTypes.func.isRequired
 }
 
