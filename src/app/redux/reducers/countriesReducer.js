@@ -1,7 +1,8 @@
 import { SET_COUNTRIES } from '../types/countriesTypes'
 
 const initialState = {
-  dataCountries: []
+  dataCountries: [],
+  countriesByContinents: []
 }
 
 const countriesReducer = (state = initialState, { type, payload }) => {

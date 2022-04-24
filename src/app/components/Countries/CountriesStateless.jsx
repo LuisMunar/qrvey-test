@@ -11,7 +11,7 @@ const CountriesStateless = ({ dataCountries }) => {
       <CountriesList continent={ 'Europa' } countries={ dataCountries } />
       <CountriesList continent={ 'Asia' } countries={ dataCountries } />
       <CountriesList continent={ 'Africa' } countries={ dataCountries } />
-      <CountriesList continent={ 'Africa' } countries={ dataCountries } />
+      <CountriesList continent={ 'Oceania' } countries={ dataCountries } />
 
       <CountryDetails />
     </div>

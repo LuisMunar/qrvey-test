@@ -67,6 +67,8 @@
 }
 
 .country-details__content-rowinfo-flag {
-  height: 120px;
-  width: 181px;
+  width: 180px;
+  -webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.75);
 }

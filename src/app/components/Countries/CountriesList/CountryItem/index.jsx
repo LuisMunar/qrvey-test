@@ -2,11 +2,15 @@ import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 
 import CountryItemStateless from './CountryItemStateless'
-import { showCountryDetailsAction } from '../../../../redux/actions/countryDetailsActions'
+import { setDataCountrySelectedAction, showCountryDetailsAction } from '../../../../redux/actions/countryDetailsActions'
 
 const CountryItem = ({ country }) => {
   const dispatch = useDispatch()
-  const handlerShowCountryDetails = () => dispatch(showCountryDetailsAction(true))
+  
+  const handlerShowCountryDetails = () => {
+    dispatch(setDataCountrySelectedAction(country))
+    dispatch(showCountryDetailsAction(true))
+  }
 
   return (
     <CountryItemStateless
