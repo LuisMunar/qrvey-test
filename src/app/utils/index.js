@@ -1,13 +1,28 @@
+export const getCountryCapital = (data) => {
+  if(data) {
+    return data[0]
+  }
+  return 'Without capital'
+}
+
 export const getCountryCurrency = (data) => {
-  const keys = Object.keys(data)
-  const currencyKey = keys[0]
-  return data[currencyKey].name
+  if (data) {
+    const keys = Object.keys(data)
+    const currencyKey = keys[0]
+    return data[currencyKey].name
+  }
+  
+  return 'Without currencies'
 }
 
 export const getCountryLanguage = (data) => {
-  const keys = Object.keys(data)
-  const currencyKey = keys[0]
-  return data[currencyKey]
+  if(data) {
+    const keys = Object.keys(data)
+    const currencyKey = keys[0]
+    return data[currencyKey]
+  }
+
+  return 'Without languages'
 }
 
 export const getCountriesBorderFullname = (countries, borderCountries) => {
@@ -24,8 +39,6 @@ export const getCountriesBorderFullname = (countries, borderCountries) => {
 }
 
 export const formatDataCountries = (countries, favoriteCountries) => {
-  console.log('favoriteCountries => ', favoriteCountries)
-
   const localCountries = countries.map(country => {
     return {
       ...country,

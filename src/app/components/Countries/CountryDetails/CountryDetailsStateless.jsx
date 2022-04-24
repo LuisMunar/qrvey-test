@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Close from '../../../assets/images/global-icons/close.svg'
 import SelectedStar from '../../../assets/images/countries/selected-star.svg'
 import UnselectedStar from '../../../assets/images/countries/unselected-star.svg'
-import { getCountryCurrency, getCountryLanguage, numberFormat } from '../../../utils'
+import { getCountryCapital, getCountryCurrency, getCountryLanguage, numberFormat } from '../../../utils'
 import './country-details.css'
 
 const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setFavoriteCountry }) => {
@@ -21,13 +21,13 @@ const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setF
         />
 
         <div className="country-details__content-titlecontent">
-          <h2 className="country-details__content-titlecontent-title">{ name.official }</h2>
           <img
             src={ favorite ? SelectedStar : UnselectedStar }
             alt="unselected star"
             className="country-details__content-titlecontent-star"
             onClick={ () => setFavoriteCountry({ name: name.common, favorite: !favorite }) }
           />
+          <h2 className="country-details__content-titlecontent-title">{ name.official }</h2>
         </div>
 
         <div className="country-details__content-rowinfo">
@@ -40,7 +40,7 @@ const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setF
         </div>
         <div className="country-details__content-rowinfo">
           <span className="country-details__content-rowinfo-key">Capital:</span>
-          <span className="country-details__content-rowinfo-value">{ capital[0] }</span>
+          <span className="country-details__content-rowinfo-value">{ getCountryCapital(capital) }</span>
         </div>
         <div className="country-details__content-rowinfo">
           <span className="country-details__content-rowinfo-key">Currency:</span>
