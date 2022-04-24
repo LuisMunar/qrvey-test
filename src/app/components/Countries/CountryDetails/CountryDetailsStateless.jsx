@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Close from '../../../assets/images/global-icons/close.svg'
 import UnselectedStar from '../../../assets/images/countries/unselected-star.svg'
-import { getCountryCurrency, getCountryLanguage, getCountriesBorderFullname } from '../../../utils'
+import { getCountryCurrency, getCountryLanguage, getCountriesBorderFullname, numberFormat } from '../../../utils'
 import './country-details.css'
 
 const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, dataCountries }) => {
@@ -30,7 +30,7 @@ const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, data
         </div>
         <div className="country-details__content-rowinfo">
           <span className="country-details__content-rowinfo-key">Population:</span>
-          <span className="country-details__content-rowinfo-value">{ population }</span>
+          <span className="country-details__content-rowinfo-value">{ numberFormat(population) }</span>
         </div>
         <div className="country-details__content-rowinfo">
           <span className="country-details__content-rowinfo-key">Capital:</span>

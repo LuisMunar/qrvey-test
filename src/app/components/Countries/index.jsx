@@ -5,7 +5,7 @@ import { getCountriesMiddleware } from '../../redux/middlewares/countriesMiddlew
 import CountriesStateless from './CountriesStateless'
 
 const Countries = () => {
-  const { dataCountries } = useSelector(({ countriesReducer }) => countriesReducer)
+  const { dataCountries, countriesByContinents } = useSelector(({ countriesReducer }) => countriesReducer)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Countries = () => {
     dispatch(getCountriesMiddleware())
   }
 
-  return <CountriesStateless dataCountries={ dataCountries } />
+  return <CountriesStateless dataCountries={ dataCountries } countriesByContinents={ countriesByContinents } />
 }
 
 export default Countries

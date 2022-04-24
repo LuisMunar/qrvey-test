@@ -22,3 +22,21 @@ export const getCountriesBorderFullname = (countries, borderCountries) => {
 
   return borderCountriesFullName.join(', ')
 }
+
+export const filterCountriesByContinents = (countries) => {
+  const continentsArray = [...new Set(countries.map(country => country.region))]
+
+  const countriesByContinents = continentsArray.map((continent) => {
+    const myCountries = countries.filter((country) => country.region === continent)
+    return {
+      continent,
+      countries: myCountries.sort((itemA, itemB) => itemA.name.common > itemB.name.common ? 1 : -1)
+    }
+  })
+
+  return countriesByContinents.sort((itemA, itemB) => itemA.continent > itemB.continent ? 1 : -1)
+}
+
+export const numberFormat = (number) => {
+  return new Intl.NumberFormat().format(number)
+}

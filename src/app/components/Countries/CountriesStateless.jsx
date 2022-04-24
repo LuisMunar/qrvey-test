@@ -4,26 +4,22 @@ import CountriesList from './CountriesList'
 import CountryDetails from './CountryDetails'
 import './countries.css'
 
-const CountriesStateless = ({ dataCountries }) => {
+const CountriesStateless = ({ countriesByContinents }) => {
   const renderCountries = () => (
     <div className="countries">
-      <CountriesList continent={ 'America' } countries={ dataCountries } />
-      <CountriesList continent={ 'Europa' } countries={ dataCountries } />
-      <CountriesList continent={ 'Asia' } countries={ dataCountries } />
-      <CountriesList continent={ 'Africa' } countries={ dataCountries } />
-      <CountriesList continent={ 'Oceania' } countries={ dataCountries } />
-
+      { countriesByContinents.map(({ continent, countries }, i) => <CountriesList key={ i } continent={ continent } countries={ countries } />) }
       <CountryDetails />
     </div>
   )
 
   const renderWithoutCountries = () => <span className="countries__not-found">No results found</span>
 
-  return dataCountries.length > 0 ? renderCountries() : renderWithoutCountries()
+  return countriesByContinents.length > 0 ? renderCountries() : renderWithoutCountries()
 }
 
 CountriesStateless.propTypes = {
-  dataCountries: PropTypes.array.isRequired
+  dataCountries: PropTypes.array.isRequired,
+  countriesByContinents: PropTypes.array.isRequired
 }
 
 export default CountriesStateless

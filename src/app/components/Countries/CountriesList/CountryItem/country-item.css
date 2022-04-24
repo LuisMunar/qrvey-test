@@ -15,7 +15,7 @@
 
 .country-item__name {
   font-size: 14px;
-  width: 150px;
+  width: 120px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -10,7 +10,8 @@ const countriesReducer = (state = initialState, { type, payload }) => {
     case SET_COUNTRIES:
       return {
         ...state,
-        dataCountries: payload
+        dataCountries: payload.countries,
+        countriesByContinents: payload.countriesByContinents
       }
   
     default:
