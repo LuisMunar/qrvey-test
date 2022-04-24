@@ -1,6 +1,6 @@
 import { LOADING_COUNTRIES, SET_COUNTRIES, SET_COUNTRIES_BY_CONTINENTS, SET_COUNTRIES_BY_FAVORITE, SET_COUNTRIES_BY_NAME, SET_FAVORITE_COUNTRY } from '../types/countriesTypes'
 import { setFavoriteCountrySelectedAction } from './countryDetailsActions'
-import { setDataLDB } from '../../services/frontDBService'
+import { deleteDataLDB, setDataLDB } from '../../services/frontDBService'
 import { FAVORITE_COUNTRIES } from '../../constants/collectionsDBContants'
 import { FAVORITES, SHOW_ALL } from '../../constants/searcherConstants'
 
@@ -10,8 +10,10 @@ export const setCountriesActions = (payload) => ({
 })
 
 export const setFavoriteCountryAction = (payload) => {
+  const { name, favorite } = payload
+  
   return (dispathc) => {
-    setDataLDB(FAVORITE_COUNTRIES, { name: payload.name })
+    favorite ? setDataLDB(FAVORITE_COUNTRIES, { name }) : deleteDataLDB(FAVORITE_COUNTRIES, { name })
     dispathc(setFavoriteCountrySelectedAction(payload.favorite))
     dispathc(setFavoriteCountry(payload))
   }

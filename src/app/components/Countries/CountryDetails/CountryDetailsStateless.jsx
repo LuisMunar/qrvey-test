@@ -57,7 +57,11 @@ const CountryDetailsStateless = ({ hideCountryDetails, dataCountrySelected, setF
 
         <div className="country-details__content-rowinfo">
           <span className="country-details__content-rowinfo-key">Flag:</span>
-          <img src={ flags[0] } alt="flag" className="country-details__content-rowinfo-flag" />
+          <img
+            src={ flags[0] }
+            alt="flag"
+            className="country-details__content-rowinfo-flag"
+          />
         </div>
       </div>
     </div>

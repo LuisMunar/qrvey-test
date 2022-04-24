@@ -12,3 +12,7 @@ export const getDataLDB = (collection) => {
 export const setDataLDB = (collection, params) => {
   db.collection(collection).add(params)
 }
+
+export const deleteDataLDB = (collection, paramIdDelete) => {
+  db.collection(collection).doc(paramIdDelete).delete()
+}
