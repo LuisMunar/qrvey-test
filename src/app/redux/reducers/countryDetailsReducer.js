@@ -1,4 +1,4 @@
-import { SET_DATA_COUNTRY_SELECTED, SHOW_COUNTRY_DETAILS } from '../types/countryDetailsTypes'
+import { SET_DATA_COUNTRY_SELECTED, SET_FAVORITE_COUNTRY_SELECTED_ACTION, SHOW_COUNTRY_DETAILS } from '../types/countryDetailsTypes'
 
 const initialState = {
   show: false,
@@ -17,6 +17,15 @@ const countryDetailsReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         dataCountrySelected: payload
+      }
+
+    case SET_FAVORITE_COUNTRY_SELECTED_ACTION:
+      return {
+        ...state,
+        dataCountrySelected: {
+          ...state.dataCountrySelected,
+          favorite: payload
+        }
       }
   
     default:

@@ -18,7 +18,6 @@ const CountriesStateless = ({ countriesByContinents }) => {
 }
 
 CountriesStateless.propTypes = {
-  dataCountries: PropTypes.array.isRequired,
   countriesByContinents: PropTypes.array.isRequired
 }
 

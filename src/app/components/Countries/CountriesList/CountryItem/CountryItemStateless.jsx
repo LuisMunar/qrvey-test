@@ -4,7 +4,7 @@ import SelectedStart from '../../../../assets/images/countries/selected-star.svg
 import './country-item.css'
 
 const CountryItemStateless = ({ country, handlerShowCountryDetails }) => {
-  const { flag, name  } = country
+  const { flag, name, favorite  } = country
   return (
     <li
       className="country-item"
@@ -12,7 +12,7 @@ const CountryItemStateless = ({ country, handlerShowCountryDetails }) => {
     >
       <span className="country-item__flag">{ flag }</span>
       <span className="country-item__name">{ name.common }</span>
-      <img src={ SelectedStart } alt="star" className="country-item__star" />
+      { favorite && <img src={ SelectedStart } alt="star" className="country-item__star" /> }
     </li>
   )
 }

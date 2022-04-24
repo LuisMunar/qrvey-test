@@ -23,14 +23,22 @@ export const getCountriesBorderFullname = (countries, borderCountries) => {
   return borderCountriesFullName.join(', ')
 }
 
-export const filterCountriesByContinents = (countries) => {
-  const continentsArray = [...new Set(countries.map(country => country.region))]
+export const formatDataCountries = (countries) => {
+  const localCountries = countries.map(country => {
+    return {
+      ...country,
+      favorite: false,
+      borderCountriesFullName: getCountriesBorderFullname(countries, country.borders)
+    }
+  })
+
+  const continentsArray = [...new Set(localCountries.map(country => country.region))]
 
   const countriesByContinents = continentsArray.map((continent) => {
-    const myCountries = countries.filter((country) => country.region === continent)
+    const filterCountriesContinent = localCountries.filter((country) => country.region === continent)
     return {
       continent,
-      countries: myCountries.sort((itemA, itemB) => itemA.name.common > itemB.name.common ? 1 : -1)
+      countries: filterCountriesContinent.sort((itemA, itemB) => itemA.name.common > itemB.name.common ? 1 : -1)
     }
   })
 
