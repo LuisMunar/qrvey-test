@@ -22,6 +22,14 @@
   outline: none;
   border: solid 2px #E0E0E0;
   cursor: pointer;
+  background-image: url('../../assets/images/searcher/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: 90% center;
+  background-size: 12px;
+}
+
+.searcher__inputlist::-webkit-calendar-picker-indicator {
+  display: none !important;
 }
 
 .searcher__button {
@@ -30,16 +38,17 @@
   right: -34px;
   height: 100%;
   width: 60px;
-
   background-color: var(--secondary-color);
   border: none;
   border-radius: 0 10px 10px 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
+}
+
+.searcher__button:hover {
+  background-color: rgba(33, 173, 207, .9);
 }
 
 .searcher__button-icon {
